@@ -4,6 +4,7 @@ function onButtonDown()
     var balloonIndex = balloons.indexOf(this);
     console.log('Clicked!', balloonIndex);
     balloonsStage.removeChildAt(balloonIndex);
+    shoot.play();
     if (balloonIndex > -1) {
         balloons.splice(balloonIndex, 1);
     }
@@ -15,6 +16,7 @@ function onButtonDown()
 
         bg.filters = [blurFilter1];
         pointer.filters = [blurFilter2];
+        music.play();
         animateFin();
     }
 }
@@ -24,17 +26,17 @@ function onButtonDown()
 function animateFin() {
     requestAnimationFrame(animateFin);
     congrats.position.y += Math.random(congrats.direction) * 7;
-    if (congrats.position.y > 50)
+    if (congrats.position.y > 5)
         {
-            congrats.position.y = 50;
+            congrats.position.y = 5;
         }
     
     
     // just for fun, let's rotate mr rabbit a little
     fin.position.y -= Math.random(fin.direction) * 11;
-    if (fin.position.y < 50)
+    if (fin.position.y < 5)
         {
-            fin.position.y = 50;
+            fin.position.y = 5;
         }
     // render the container
     renderer.render(stage);
