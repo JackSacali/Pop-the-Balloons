@@ -1,0 +1,6 @@
+audio, canvas, progress, video {
+    display: inline-block;
+    vertical-align: baseline;
+/*    margin: auto;*/
+    height: calc(100vh - 25px);
+}

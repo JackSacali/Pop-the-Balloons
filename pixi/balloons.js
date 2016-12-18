@@ -1,11 +1,11 @@
 var aliens = [];
 
-var totalDudes = 10;
+var totalDudes = 15;
 
 for (var i = 0; i < totalDudes; i++)
 {
     // create a new Sprite that uses the image name that we just generated as its source
-    var dude =  PIXI.Sprite.fromImage('balloons/b01.png');
+    var dude =  PIXI.Sprite.fromImage('balloons/b04.png');
 
     // set the anchor point so the texture is centerd on the sprite
     dude.anchor.set(0.5);
@@ -27,7 +27,7 @@ for (var i = 0; i < totalDudes; i++)
     dude.turningSpeed = Math.random() - 0.8;
 
     // create a random speed for the dude between 0 - 2
-    dude.speed = 2 + Math.random() * 2;
+    dude.speed = 3 + Math.random() * 2;
 
     // finally we push the dude into the aliens array so it it can be easily accessed later
     aliens.push(dude);
@@ -43,47 +43,3 @@ var dudeBounds = new PIXI.Rectangle(-dudeBoundsPadding,
                                     renderer.height + dudeBoundsPadding * 2);
 
 var tick = 0;
-
-requestAnimationFrame(animate);
-
-function animate() {
-
-    // iterate through the dudes and update their position
-    for (var i = 0; i < aliens.length; i++)
-    {
-        var dude = aliens[i];
-        dude.direction += dude.turningSpeed * 0.1;
-        dude.position.x += Math.sin(dude.direction) * dude.speed;
-        dude.position.y += Math.random(dude.direction) * dude.speed;
-//        dude.position.y -= 1;
-//        dude.rotation = -dude.direction - Math.PI / 2;
-
-        // wrap the dudes by testing their bounds...
-        if (dude.position.x < dudeBounds.x)
-        {
-            dude.position.x += dudeBounds.width;
-        }
-        else if (dude.position.x > dudeBounds.x + dudeBounds.width)
-        {
-            dude.position.x -= dudeBounds.width;
-        }
-
-        if (dude.position.y < dudeBounds.y)
-        {
-            dude.position.y += dudeBounds.height;
-        }
-        else if (dude.position.y > dudeBounds.y + dudeBounds.height)
-        {
-            dude.position.y -= dudeBounds.height;
-        }
-    }
-
-    // increment the ticker
-    tick += 1;
-
-    // time to render the stage!
-    renderer.render(stage);
-
-    // request another animation frame...
-    requestAnimationFrame(animate);
-}
