@@ -32,7 +32,8 @@ function animate() {
             dude.position.y -= dudeBounds.height;
         }
     }
-
+//    pointer.position.x = document.event.clientX;
+//    pointer.position.y = document.event.clientY;
     // increment the ticker
     tick += 1;
 
