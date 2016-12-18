@@ -1,4 +1,4 @@
-var aliens = [];
+var balloons = [];
 
 var totalDudes = 15;
 
@@ -6,9 +6,15 @@ for (var i = 0; i < totalDudes; i++)
 {
     // create a new Sprite that uses the image name that we just generated as its source
     var dude =  PIXI.Sprite.fromImage('balloons/b04.png');
-
+    dude.buttonMode = true;
     // set the anchor point so the texture is centerd on the sprite
     dude.anchor.set(0.5);
+    // make the button interactive...
+    dude.interactive = true;
+    
+    // set the mousedown and touchstart callback...
+    dude.on('mousedown', onButtonDown)
+    dude.on('touchstart', onButtonDown)
 
     // set a random scale for the dude - no point them all being the same size!
     dude.scale.set(0.8 + Math.random() * 0.3);
@@ -29,8 +35,8 @@ for (var i = 0; i < totalDudes; i++)
     // create a random speed for the dude between 0 - 2
     dude.speed = 3 + Math.random() * 2;
 
-    // finally we push the dude into the aliens array so it it can be easily accessed later
-    aliens.push(dude);
+    // finally we push the dude into the balloons array so it it can be easily accessed later
+    balloons.push(dude);
 
     stage.addChild(dude);
 }

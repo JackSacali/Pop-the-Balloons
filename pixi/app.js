@@ -1,7 +1,7 @@
 // You can use either `new PIXI.WebGLRenderer`, `new PIXI.CanvasRenderer`, or `PIXI.autoDetectRenderer`
 // which will try to choose the best renderer for the environment you are in.
 var canvas = document.getElementById('content');
-var renderer = PIXI.autoDetectRenderer(800, 600, {backgroundColor : 0x00FFFF});
+var renderer = PIXI.autoDetectRenderer(800, 600, {backgroundColor : 0xFFFFFF});
 var elem = document.getElementById("content");
 elem.appendChild(renderer.view);
 

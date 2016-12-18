@@ -4,9 +4,9 @@ requestAnimationFrame(animate);
 function animate() {
 
     // iterate through the dudes and update their position
-    for (var i = 0; i < aliens.length; i++)
+    for (var i = 0; i < balloons.length; i++)
     {
-        var dude = aliens[i];
+        var dude = balloons[i];
         dude.direction += dude.turningSpeed * 0.01;
         dude.position.x += Math.sin(dude.direction) * dude.speed;
         dude.position.y -= Math.random(dude.direction) * dude.speed;
